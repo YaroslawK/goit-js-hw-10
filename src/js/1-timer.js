@@ -10,14 +10,11 @@ import "izitoast/dist/css/iziToast.min.css";
 
 
 const dateTimePicker = document.querySelector("#datetime-picker");
-console.log(dateTimePicker);
 const startButton = document.querySelector("[data-start]");
 const daysElement = document.querySelector("[data-days]");
 const hoursElement = document.querySelector("[data-hours]");
 const minutesElement = document.querySelector("[data-minutes]");
 const secondsElement = document.querySelector("[data-seconds]");
-
-// Налаштування flatpickr
 
 const options = {
   enableTime: true,
@@ -43,9 +40,8 @@ flatpickr(dateTimePicker, options);
 let userSelectedDate;
 
 
-let countdownInterval; // Зберігання ідентифікатору інтервалу
+let countdownInterval; 
 
-// Функція для обчислення відстані між поточною датою і кінцевою датою
 function startCountdown() {
   const targetDate = userSelectedDate.getTime();
   countdownInterval = setInterval(() => {
@@ -68,19 +64,16 @@ function startCountdown() {
   }, 1000);
 }
 
-// Обробник події натискання на кнопку "Start"
 startButton.addEventListener("click", () => {
   startButton.disabled = true;
   dateTimePicker.disabled = true;
   startCountdown();
 });
 
-// Функція для форматування чисел менше 10
 function addLeadingZero(value) {
   return value < 10 ? `0${value}` : value;
 }
 
-// Функція для перетворення мілісекунд у об'єкт з днями, годинами, хвилинами та секундами
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -93,7 +86,6 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-// Функція для скидання таймера
 function resetTimer() {
   clearInterval(countdownInterval);
   daysElement.textContent = "00";

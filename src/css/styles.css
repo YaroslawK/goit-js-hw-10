@@ -17,3 +17,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.list{
+  display: flex;
+  gap: 75px;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
