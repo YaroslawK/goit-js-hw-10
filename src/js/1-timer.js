@@ -16,12 +16,15 @@ const hoursElement = document.querySelector("[data-hours]");
 const minutesElement = document.querySelector("[data-minutes]");
 const secondsElement = document.querySelector("[data-seconds]");
 
+let userSelectedDate;
+
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-    onClose(selectedDates) {
+  onClose(selectedDates) {
+      
       console.log(selectedDates[0]);
     userSelectedDate = selectedDates[0];
     if (userSelectedDate < new Date()) {
@@ -36,9 +39,6 @@ const options = {
   },
 };
 flatpickr(dateTimePicker, options);
-
-let userSelectedDate;
-
 
 let countdownInterval; 
 
